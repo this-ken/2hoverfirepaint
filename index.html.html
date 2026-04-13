@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>次世代耐火塗料 開発プロジェクト｜投資家向け提案書</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Bebas+Neue&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B2A;
+    --navy-mid: #1B2E45;
+    --navy-light: #243B55;
+    --orange: #E85D04;
+    --orange-light: #F48C06;
+    --white: #FFFFFF;
+    --off-white: #F5F5F0;
+    --light-gray: #E8EDF2;
+    --gray: #8A9BB0;
+    --dark-gray: #3A4A5C;
+    --green: #10B981;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+    background: rgba(13,27,42,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(232,93,4,0.3);
+  }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 2px; color: var(--orange); }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    font-size: 12px; font-weight: 500; color: var(--gray); text-decoration: none;
+    letter-spacing: 1px; text-transform: uppercase; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--orange-light); }
+  .nav-badge {
+    font-size: 11px; font-weight: 700; color: var(--navy);
+    background: var(--orange); padding: 4px 12px; letter-spacing: 1px;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    position: relative; overflow: hidden;
+    padding-top: 60px;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 60px 80px 80px;
+    position: relative; z-index: 2;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; font-weight: 700; letter-spacing: 2px;
+    color: var(--white); background: var(--orange);
+    padding: 6px 16px; margin-bottom: 36px; width: fit-content;
+  }
+  .hero-h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 6vw, 80px);
+    line-height: 1.0; letter-spacing: 2px; color: var(--white);
+    margin-bottom: 16px;
+  }
+  .hero-h1 span { color: var(--orange); }
+  .hero-sub {
+    font-size: 16px; color: var(--light-gray); line-height: 1.8;
+    margin-bottom: 48px; font-weight: 300;
+  }
+  .hero-cta {
+    display: flex; gap: 16px; flex-wrap: wrap;
+  }
+  .btn-primary {
+    padding: 14px 32px; background: var(--orange); color: var(--white);
+    font-size: 13px; font-weight: 700; letter-spacing: 1px; text-decoration: none;
+    transition: background .2s, transform .15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--orange-light); transform: translateY(-1px); }
+  .btn-outline {
+    padding: 14px 32px; border: 1px solid rgba(255,255,255,0.3); color: var(--gray);
+    font-size: 13px; font-weight: 500; letter-spacing: 1px; text-decoration: none;
+    transition: border-color .2s, color .2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+
+  .hero-right {
+    position: relative; display: flex; align-items: center; justify-content: center;
+    background: var(--navy-mid);
+    border-left: 3px solid var(--orange);
+  }
+  .hero-big-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(120px, 16vw, 200px);
+    color: var(--orange); opacity: 0.15;
+    position: absolute; letter-spacing: 4px;
+    user-select: none; line-height: 1;
+  }
+  .hero-badge-wrap {
+    position: relative; z-index: 2; text-align: center;
+  }
+  .hero-badge-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(80px, 10vw, 140px);
+    color: var(--orange); line-height: 1; letter-spacing: 3px;
+  }
+  .hero-badge-label {
+    font-size: 14px; color: var(--light-gray); letter-spacing: 4px; margin-top: 8px;
+  }
+  .hero-badge-sub {
+    font-size: 12px; color: var(--gray); margin-top: 16px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .hero-scroll {
+    position: absolute; bottom: 32px; left: 80px;
+    font-size: 11px; color: var(--gray); letter-spacing: 2px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-scroll::before {
+    content: ''; display: block; width: 40px; height: 1px; background: var(--orange);
+  }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 100px 80px; }
+  .section-header { margin-bottom: 64px; }
+  .section-num {
+    font-family: 'DM Mono', monospace; font-size: 11px; color: var(--orange);
+    letter-spacing: 3px; margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 4vw, 52px); letter-spacing: 2px;
+    line-height: 1.1;
+  }
+  .section-title span { color: var(--orange); }
+  .section-divider {
+    width: 48px; height: 3px; background: var(--orange); margin-top: 20px;
+  }
+  .alt-bg { background: var(--off-white); color: var(--navy); }
+  .alt-bg .section-title { color: var(--navy); }
+  .alt-bg .section-num { color: var(--orange); }
+
+  /* ── EXEC SUMMARY ── */
+  #summary { background: var(--navy-mid); }
+  .summary-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  }
+  .summary-card {
+    background: var(--navy-light); padding: 40px 32px;
+    border-top: 3px solid transparent; transition: border-color .2s, transform .2s;
+    position: relative; overflow: hidden;
+  }
+  .summary-card:hover { border-top-color: var(--orange); transform: translateY(-4px); }
+  .summary-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(232,93,4,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .card-icon { font-size: 36px; margin-bottom: 20px; }
+  .card-label {
+    font-size: 10px; font-weight: 700; color: var(--gray);
+    letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px;
+  }
+  .card-title {
+    font-family: 'Bebas Neue', sans-serif; font-size: 26px;
+    color: var(--orange); letter-spacing: 1px; margin-bottom: 16px; line-height: 1.2;
+  }
+  .card-body { font-size: 14px; color: var(--light-gray); line-height: 1.8; font-weight: 300; }
+
+  .tagline-bar {
+    background: var(--navy-light); border-left: 4px solid var(--orange);
+    padding: 20px 32px; margin-top: 2px;
+    font-size: 15px; font-weight: 700; color: var(--orange-light);
+  }
+
+  /* ── PRODUCT ── */
+  #product { background: var(--navy); }
+  .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .feature-list { display: flex; flex-direction: column; gap: 2px; }
+  .feature-item {
+    display: flex; gap: 20px; align-items: flex-start;
+    background: var(--navy-mid); padding: 24px 28px;
+    border-left: 3px solid transparent; transition: border-color .2s;
+  }
+  .feature-item:hover { border-left-color: var(--orange); }
+  .feature-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+  .feature-title { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+  .feature-sub { font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+  .use-panel {
+    background: var(--navy-mid); padding: 40px 36px;
+    border-top: 3px solid var(--orange);
+  }
+  .use-panel-title {
+    font-family: 'Bebas Neue', sans-serif; font-size: 22px;
+    color: var(--orange-light); letter-spacing: 2px; margin-bottom: 28px;
+  }
+  .use-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 14px; color: var(--light-gray);
+  }
+  .use-item:last-child { border-bottom: none; }
+  .use-item span:first-child { font-size: 20px; }
+
+  /* ── MARKET ── */
+  #market { background: var(--navy-mid); }
+  .market-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+
+  .chart-area {
+    background: var(--navy); padding: 32px; border-top: 3px solid var(--orange);
+  }
+  .chart-title {
+    font-size: 13px; font-weight: 700; color: var(--white);
+    margin-bottom: 24px; letter-spacing: 1px;
+  }
+  .bar-chart { display: flex; align-items: flex-end; gap: 10px; height: 180px; }
+  .bar-col { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; }
+  .bar {
+    width: 100%; background: var(--orange); border-radius: 2px 2px 0 0;
+    transition: opacity .2s; position: relative;
+    display: flex; align-items: flex-start; justify-content: center;
+  }
+  .bar:hover { opacity: 0.85; }
+  .bar-val {
+    font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 500;
+    color: var(--navy); padding-top: 6px;
+  }
+  .bar-label { font-size: 11px; color: var(--gray); text-align: center; line-height: 1.3; }
+  .chart-note {
+    font-size: 10px; color: var(--gray); margin-top: 16px; line-height: 1.5; font-style: italic;
+  }
+
+  .stat-mini {
+    background: var(--navy); padding: 24px 28px; margin-bottom: 2px;
+    border-left: 4px solid var(--orange-light);
+  }
+  .stat-mini-label { font-size: 10px; color: var(--gray); letter-spacing: 2px; margin-bottom: 6px; }
+  .stat-mini-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 32px;
+    color: var(--orange); letter-spacing: 2px; line-height: 1;
+  }
+  .stat-mini-desc { font-size: 12px; color: var(--light-gray); margin-top: 6px; line-height: 1.5; }
+
+  .evidence-cards { display: flex; flex-direction: column; gap: 2px; }
+  .ev-card { background: var(--navy); padding: 24px 28px; }
+  .ev-card-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+  }
+  .ev-dot { width: 10px; height: 10px; flex-shrink: 0; }
+  .ev-num {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    color: var(--gray); letter-spacing: 1px;
+  }
+  .ev-title { font-size: 14px; font-weight: 700; color: var(--white); }
+  .ev-body { font-size: 12px; color: var(--gray); line-height: 1.7; }
+  .ev-source {
+    font-size: 10px; color: rgba(138,155,176,0.6);
+    margin-top: 10px; font-family: 'DM Mono', monospace;
+  }
+
+  /* ── COMPETITIVE ── */
+  #competitive { background: var(--off-white); color: var(--navy); }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead tr { background: var(--navy); }
+  thead th {
+    padding: 14px 16px; text-align: center; font-weight: 700;
+    color: var(--white); font-size: 12px; letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  thead th:nth-child(2) { background: var(--orange); }
+  tbody tr { border-bottom: 1px solid #D1D9E6; transition: background .15s; }
+  tbody tr:hover { background: rgba(232,93,4,0.04); }
+  tbody td { padding: 14px 16px; text-align: center; color: var(--dark-gray); }
+  tbody td:first-child {
+    font-weight: 700; color: var(--navy); text-align: left; background: #EFF2F7;
+  }
+  tbody td:nth-child(2) {
+    font-weight: 700; color: var(--orange); background: #FFF7ED;
+  }
+  .table-note { font-size: 11px; color: var(--gray); margin-top: 16px; font-style: italic; }
+
+  /* ── ROADMAP ── */
+  #roadmap { background: var(--navy); }
+  .roadmap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .phase-card { background: var(--navy-mid); overflow: hidden; }
+  .phase-header {
+    padding: 20px 28px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .phase-name {
+    font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px;
+  }
+  .phase-year {
+    font-family: 'DM Mono', monospace; font-size: 12px; color: var(--white); opacity: 0.8;
+  }
+  .phase-body { padding: 28px; }
+  .phase-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 13px; color: var(--light-gray); margin-bottom: 12px; line-height: 1.5;
+  }
+  .phase-item::before { content: '▶'; color: var(--orange); font-size: 10px; margin-top: 3px; flex-shrink: 0; }
+  .phase-focus {
+    background: var(--navy-light); padding: 16px 20px; margin-top: 16px;
+  }
+  .phase-focus-label { font-size: 10px; color: var(--orange); letter-spacing: 2px; font-weight: 700; margin-bottom: 6px; }
+  .phase-focus-text { font-size: 12px; color: var(--gray); line-height: 1.5; }
+
+  .timeline-bar {
+    height: 4px; background: var(--navy-light); margin: 40px 0;
+    position: relative; display: flex; align-items: center;
+  }
+  .timeline-dot {
+    width: 16px; height: 16px; border-radius: 50%;
+    position: absolute; top: 50%; transform: translateY(-50%);
+  }
+
+  .exit-bar {
+    background: var(--navy-light); border-left: 4px solid var(--green);
+    padding: 24px 32px; margin-top: 40px;
+    display: flex; align-items: center; gap: 24px;
+  }
+  .exit-label {
+    font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--green); letter-spacing: 2px; white-space: nowrap;
+  }
+  .exit-text { font-size: 14px; color: var(--light-gray); line-height: 1.6; }
+
+  /* ── FINANCE ── */
+  #finance { background: var(--off-white); color: var(--navy); }
+  .finance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+
+  .rev-chart-wrap { background: var(--white); padding: 32px; box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+  .rev-chart-title { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 24px; }
+  .rev-bars { display: flex; align-items: flex-end; gap: 20px; height: 160px; }
+  .rev-col { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; }
+  .rev-bar {
+    width: 100%; background: var(--orange); border-radius: 2px 2px 0 0;
+    display: flex; align-items: flex-start; justify-content: center;
+  }
+  .rev-val { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--white); padding-top: 6px; }
+  .rev-label { font-size: 12px; color: var(--dark-gray); }
+
+  .kpi-list { display: flex; flex-direction: column; gap: 2px; }
+  .kpi-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: var(--white); padding: 20px 24px;
+    border-left: 4px solid var(--orange);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .kpi-icon { font-size: 24px; flex-shrink: 0; }
+  .kpi-label { font-size: 11px; color: var(--gray); letter-spacing: 1px; margin-bottom: 4px; }
+  .kpi-val { font-size: 18px; font-weight: 700; color: var(--navy); }
+
+  .alloc-strip { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-top: 40px; }
+  .alloc-item { text-align: center; padding: 20px 12px; }
+  .alloc-pct {
+    font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 2px;
+  }
+  .alloc-label { font-size: 12px; color: var(--dark-gray); margin-top: 6px; }
+
+  /* ── INVESTMENT ── */
+  #investment { background: var(--navy-mid); }
+  .inv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .inv-panel { background: var(--navy-light); padding: 40px 36px; }
+  .inv-panel-header {
+    font-family: 'Bebas Neue', sans-serif; font-size: 22px;
+    letter-spacing: 2px; margin-bottom: 28px; padding-bottom: 16px;
+    border-bottom: 2px solid var(--orange);
+  }
+  .inv-row {
+    display: flex; gap: 16px; padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .inv-row:last-child { border-bottom: none; }
+  .inv-key { font-size: 12px; font-weight: 700; color: var(--gray); min-width: 90px; padding-top: 2px; }
+  .inv-val { font-size: 13px; color: var(--light-gray); line-height: 1.6; }
+
+  .risk-item {
+    padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .risk-item:last-child { border-bottom: none; }
+  .risk-title {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 8px;
+  }
+  .risk-dot { width: 8px; height: 8px; background: var(--orange); flex-shrink: 0; }
+  .risk-solution { font-size: 12px; color: var(--gray); line-height: 1.6; padding-left: 18px; }
+
+  .cta-bar {
+    background: var(--orange); padding: 24px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 2px; flex-wrap: wrap; gap: 16px;
+  }
+  .cta-text { font-size: 15px; font-weight: 700; color: var(--white); }
+  .cta-contact { font-size: 13px; color: rgba(255,255,255,0.8); }
+
+  /* ── CTA / CONCLUSION ── */
+  #conclusion {
+    background: var(--navy); padding: 120px 80px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .conclusion-bg {
+    position: absolute; inset: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 280px; color: rgba(232,93,4,0.04);
+    display: flex; align-items: center; justify-content: center;
+    letter-spacing: 8px; pointer-events: none; user-select: none;
+    line-height: 1;
+  }
+  .conclusion-content { position: relative; z-index: 1; }
+  .conclusion-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 6vw, 72px); letter-spacing: 2px; line-height: 1.1;
+    color: var(--white); margin-bottom: 12px;
+  }
+  .conclusion-sub {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 4vw, 48px); color: var(--orange); letter-spacing: 2px;
+    margin-bottom: 40px;
+  }
+  .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; max-width: 840px; margin: 0 auto 60px; }
+  .step-card { background: var(--navy-mid); padding: 28px 24px; text-align: left; }
+  .step-header { background: var(--orange); padding: 8px 16px; margin: -28px -24px 20px; }
+  .step-num { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 2px; color: var(--white); }
+  .step-title { font-size: 14px; font-weight: 700; color: var(--orange-light); margin-bottom: 8px; }
+  .step-body { font-size: 12px; color: var(--gray); line-height: 1.6; }
+
+  .footer-strip {
+    background: var(--navy-mid); padding: 16px 80px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 11px; color: var(--gray); font-family: 'DM Mono', monospace;
+    flex-wrap: wrap; gap: 8px;
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    #hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 80px 32px 48px; }
+    .hero-right { display: none; }
+    section { padding: 64px 32px; }
+    .summary-grid, .product-grid, .market-grid, .roadmap-grid,
+    .finance-grid, .inv-grid, .steps-grid { grid-template-columns: 1fr; }
+    .footer-strip { padding: 16px 32px; }
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .conclusion-bg { font-size: 120px; }
+    .alloc-strip { grid-template-columns: repeat(2,1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">NEOFIRE 2H+</div>
+  <div class="nav-links">
+    <a href="#summary">概要</a>
+    <a href="#product">製品</a>
+    <a href="#market">市場調査</a>
+    <a href="#competitive">競合</a>
+    <a href="#roadmap">ロードマップ</a>
+    <a href="#finance">財務</a>
+    <a href="#investment">投資提案</a>
+  </div>
+  <div class="nav-badge">CONFIDENTIAL</div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left fade-in">
+    <div class="hero-tag">🇯🇵 &nbsp;日本初　JAPAN FIRST</div>
+    <h1 class="hero-h1">次世代<br>耐火塗料<br><span>開発プロジェクト</span></h1>
+    <p class="hero-sub">木造・鉄骨対応　次世代薄膜耐火塗料<br>2時間以上耐火性能（国土交通大臣認定取得予定）</p>
+    <div class="hero-cta">
+      <a href="#summary" class="btn-primary">提案内容を見る</a>
+      <a href="#investment" class="btn-outline">投資家の方へ</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-big-text">2H+</div>
+    <div class="hero-badge-wrap fade-in">
+      <div class="hero-badge-num">2H+</div>
+      <div class="hero-badge-label">耐　火　性　能</div>
+      <div class="hero-badge-sub">NeoFireGuard Wood 2H+<br>投資家向け提案書 ／ 2026年4月</div>
+    </div>
+  </div>
+  <div class="hero-scroll">SCROLL DOWN</div>
+</section>
+
+<!-- EXEC SUMMARY -->
+<section id="summary" class="fade-in">
+  <div class="section-header">
+    <div class="section-num">01 — EXECUTIVE SUMMARY</div>
+    <h2 class="section-title">提案<span>概要</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="summary-grid">
+    <div class="summary-card fade-in">
+      <div class="card-icon">🔥</div>
+      <div class="card-label">製品</div>
+      <div class="card-title">日本初・2時間以上</div>
+      <div class="card-body">木造・鉄骨対応の次世代薄膜耐火塗料。特殊技術により主要構造部を効果的に保護し、建物の早期崩壊を防ぐ。</div>
+    </div>
+    <div class="summary-card fade-in">
+      <div class="card-icon">📈</div>
+      <div class="card-label">市場</div>
+      <div class="card-title">急拡大する市場</div>
+      <div class="card-body">国内耐火塗料市場は5年で55%超成長。建築基準法改正・木造解禁により木造建築での需要が新たに創出される。</div>
+    </div>
+    <div class="summary-card fade-in">
+      <div class="card-icon">💹</div>
+      <div class="card-label">事業</div>
+      <div class="card-title">3〜5年で10億円規模</div>
+      <div class="card-body">粗利率60%以上。M&A・IPOによる早期Exitシナリオ。段階的投資でリスク低減しながら高成長を実現。</div>
+    </div>
+  </div>
+  <div class="tagline-bar">
+    「日本初」のポジションを早期確立し、国内外でスケールする絶好の機会
+  </div>
+</section>
+
+<!-- PRODUCT -->
+<section id="product" class="fade-in">
+  <div class="section-header">
+    <div class="section-num">02 — PRODUCT OVERVIEW</div>
+    <h2 class="section-title">製品<span>概要</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="product-grid">
+    <div class="feature-list">
+      <div class="feature-item fade-in">
+        <div class="feature-icon">⏱️</div>
+        <div>
+          <div class="feature-title">2時間以上耐火性能</div>
+          <div class="feature-sub">国土交通大臣認定取得予定（木造・鉄骨両対応）</div>
+        </div>
+      </div>
+      <div class="feature-item fade-in">
+        <div class="feature-icon">🔬</div>
+        <div>
+          <div class="feature-title">極薄膜施工（数mmオーダー）</div>
+          <div class="feature-sub">競合比で優位な薄さ。従来工法を大幅に上回る断熱性能</div>
+        </div>
+      </div>
+      <div class="feature-item fade-in">
+        <div class="feature-icon">🌿</div>
+        <div>
+          <div class="feature-title">水系・低VOC対応</div>
+          <div class="feature-sub">環境規制適合。カーボンニュートラル建築に最適</div>
+        </div>
+      </div>
+      <div class="feature-item fade-in">
+        <div class="feature-icon">🎨</div>
+        <div>
+          <div class="feature-title">意匠性の保持</div>
+          <div class="feature-sub">木材質感・鉄骨デザインを損なわず施工可能</div>
+        </div>
+      </div>
+      <div class="feature-item fade-in">
+        <div class="feature-icon">🏗️</div>
+        <div>
+          <div class="feature-title">多様な施工方法</div>
+          <div class="feature-sub">エアレススプレー／ローラー／刷毛塗り対応</div>
+        </div>
+      </div>
+    </div>
+    <div class="use-panel fade-in">
+      <div class="use-panel-title">対応用途</div>
+      <div class="use-item"><span>🏢</span><span>高層ビル・オフィス（鉄骨）</span></div>
+      <div class="use-item"><span>🏭</span><span>工場・倉庫・物流施設</span></div>
+      <div class="use-item"><span>🏠</span><span>中大規模木造建築（3〜10F）</span></div>
+      <div class="use-item"><span>🌳</span><span>CLTパネル・集成材</span></div>
+      <div class="use-item"><span>🏫</span><span>学校・福祉・商業施設</span></div>
+      <div class="use-item"><span>🔧</span><span>既存建築物の耐火改修</span></div>
+      <div style="margin-top:24px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1); font-size:12px; color:var(--gray); font-style:italic;">
+        製品名（仮）: NeoFireGuard Wood 2H+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET RESEARCH -->
+<section id="market" class="fade-in">
+  <div class="section-header">
+    <div class="section-num">03 — MARKET RESEARCH</div>
+    <h2 class="section-title">市場<span>調査</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="market-grid">
+    <!-- 左：グラフ + 着工統計 -->
+    <div>
+      <div class="chart-area fade-in">
+        <div class="chart-title">国内 耐火塗料市場規模推移（億円）</div>
+        <div class="bar-chart">
+          <div class="bar-col">
+            <div class="bar" style="height:77%"><div class="bar-val">58</div></div>
+            <div class="bar-label">2016年</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar" style="height:60%"><div class="bar-val">72</div></div>
+            <div class="bar-label">2018年</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar" style="height:75%"><div class="bar-val">90</div></div>
+            <div class="bar-label">2021年<br>（予測）</div>
+          </div>
+          <div class="bar-col">
+            <div class="bar" style="height:100%; background:var(--orange-light)"><div class="bar-val">120</div></div>
+            <div class="bar-label">2025年<br>（推計）</div>
+          </div>
+        </div>
+        <div class="chart-note">出典：富士キメラ総研「機能性塗料市場・グローバル展開と将来展望」各年版。2025年は市場拡大トレンドからの推計値。</div>
+      </div>
+
+      <div style="margin-top:2px;">
+        <div class="stat-mini fade-in">
+          <div class="stat-mini-label">鉄骨造　着工棟数（国土交通省 建築着工統計）</div>
+          <div class="stat-mini-num">年間 8.8〜10.9万棟</div>
+          <div class="stat-mini-desc">1棟平均床面積 約430〜460㎡ ｜ 耐火被覆が義務付けられる鉄骨造建築の新規需要が年間安定的に発生</div>
+        </div>
+        <div class="stat-mini fade-in" style="border-left-color:var(--green);">
+          <div class="stat-mini-label">国内 機能性塗料市場（富士キメラ総研 2022年版）</div>
+          <div class="stat-mini-num">4,075億円</div>
+          <div class="stat-mini-desc">2025年予測。耐火塗料は付加価値の高い製品として位置づけられ、塗料全体横ばいの中で安定成長</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右：根拠カード3枚 -->
+    <div class="evidence-cards fade-in">
+      <div class="ev-card">
+        <div class="ev-card-header">
+          <div class="ev-dot" style="background:var(--navy);"></div>
+          <div>
+            <div class="ev-num">EVIDENCE 01</div>
+            <div class="ev-title">耐火塗料 国内市場：55%超の成長</div>
+          </div>
+        </div>
+        <div class="ev-body">富士キメラ総研調査によると、国内耐火塗料市場は2016〜2021年の5年間で55.2%増（58億円→90億円予測）。薄膜化・美観性・屋外対応が評価され、データセンター・物流倉庫・半導体工場向けに需要拡大が続いている。</div>
+        <div class="ev-source">出典：富士キメラ総研「機能性塗料市場・グローバル展開と将来展望」(2018年・2022年版)</div>
+      </div>
+      <div class="ev-card" style="border-top:2px solid var(--orange);">
+        <div class="ev-card-header">
+          <div class="ev-dot" style="background:var(--orange);"></div>
+          <div>
+            <div class="ev-num">EVIDENCE 02</div>
+            <div class="ev-title">建築基準法改正（2025年4月施行）</div>
+          </div>
+        </div>
+        <div class="ev-body">5〜9階建て木造の耐火基準が合理化され、中大規模木造建築の解禁が進行。3,000㎡超でも木造化が可能となり、防火性能への要求が高まる。木造建築での耐火塗料需要が新たに創出される。</div>
+        <div class="ev-source">出典：国土交通省「改正建築基準法について」（令和4年改正・2025年4月施行）</div>
+      </div>
+      <div class="ev-card" style="border-top:2px solid var(--green);">
+        <div class="ev-card-header">
+          <div class="ev-dot" style="background:var(--green);"></div>
+          <div>
+            <div class="ev-num">EVIDENCE 03</div>
+            <div class="ev-title">鉄骨造着工棟数：年間9万棟超の安定需要</div>
+          </div>
+        </div>
+        <div class="ev-body">国土交通省の建築着工統計（2023年度）によると、鉄骨造着工棟数は年間8.8〜10.9万棟で推移。1棟当たり平均床面積は約430〜460㎡。耐火被覆が義務付けられる非住宅鉄骨造建築の新規需要が毎年安定的に発生している。</div>
+        <div class="ev-source">出典：国土交通省「建築着工統計調査」（2023年度）／日本鉄鋼連盟「鉄骨建築関連統計」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETITIVE -->
+<section id="competitive" class="alt-bg fade-in">
+  <div class="section-header">
+    <div class="section-num">04 — COMPETITIVE ANALYSIS</div>
+    <h2 class="section-title">競合<span>比較</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align:left;">比較項目</th>
+          <th>当社製品（開発中）</th>
+          <th>菊水化学「ウェスタ」</th>
+          <th>エスケー化研「SKタイカコート」</th>
+          <th>関西ペイント「耐火テクト」</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>耐火時間</td><td>2時間以上（日本初）</td><td>2時間</td><td>2時間</td><td>2時間</td></tr>
+        <tr><td>木造対応</td><td>◎ 専用対応</td><td>△ 鉄骨中心</td><td>△ 鉄骨中心</td><td>△ 鉄骨中心</td></tr>
+        <tr><td>膜厚（2H）</td><td>極薄（優位）</td><td>4.0〜5.0mm</td><td>3.0〜4.5mm</td><td>3.5〜5.3mm</td></tr>
+        <tr><td>施工性</td><td>◎ 現場/プレコート</td><td>○ スプレー</td><td>○ 1回塗り可</td><td>○ スプレー</td></tr>
+        <tr><td>意匠性</td><td>◎ 質感保持</td><td>○ 薄膜</td><td>○ 超薄膜</td><td>○ 高仕上げ</td></tr>
+        <tr><td>環境性</td><td>◎ 低VOC水系</td><td>○ 水系</td><td>△</td><td>△</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-note">※ 競合数値は2026年公開情報に基づく。当社数値は開発進捗に応じて更新予定。</div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap" class="fade-in">
+  <div class="section-header">
+    <div class="section-num">05 — DEVELOPMENT ROADMAP</div>
+    <h2 class="section-title">開発<span>ロードマップ</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="roadmap-grid">
+    <div class="phase-card fade-in">
+      <div class="phase-header" style="background:var(--orange);">
+        <div class="phase-name">Phase 1</div>
+        <div class="phase-year">2026〜2027</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-item">耐火性能試験</div>
+        <div class="phase-item">国土交通大臣認定取得</div>
+        <div class="phase-item">木材適合性最適化</div>
+        <div class="phase-focus">
+          <div class="phase-focus-label">投資重点</div>
+          <div class="phase-focus-text">認定取得費・試験設備</div>
+        </div>
+      </div>
+    </div>
+    <div class="phase-card fade-in">
+      <div class="phase-header" style="background:var(--orange-light);">
+        <div class="phase-name">Phase 2</div>
+        <div class="phase-year">2027〜2028</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-item">パイロット生産</div>
+        <div class="phase-item">工場プレコート対応</div>
+        <div class="phase-item">実物件フィールド試験</div>
+        <div class="phase-focus">
+          <div class="phase-focus-label">パートナー構築</div>
+          <div class="phase-focus-text">ハウスメーカー・ゼネコン連携</div>
+        </div>
+      </div>
+    </div>
+    <div class="phase-card fade-in">
+      <div class="phase-header" style="background:var(--green);">
+        <div class="phase-name">Phase 3</div>
+        <div class="phase-year">2028年〜</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-item">量産体制構築</div>
+        <div class="phase-item">販売開始（木造優先）</div>
+        <div class="phase-item">国内外ネットワーク構築</div>
+        <div class="phase-focus">
+          <div class="phase-focus-label">スケール展開</div>
+          <div class="phase-focus-text">3時間版・海外規格対応</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="exit-bar fade-in">
+    <div class="exit-label">EXIT シナリオ</div>
+    <div class="exit-text">大手塗料・建材メーカーによるM&A ／ IPO上場（3〜5年後）<br>売上10億円規模達成後の高バリュエーションによる高リターンを期待</div>
+  </div>
+</section>
+
+<!-- FINANCE -->
+<section id="finance" class="alt-bg fade-in">
+  <div class="section-header">
+    <div class="section-num">06 — BUSINESS PLAN</div>
+    <h2 class="section-title">事業計画・<span>財務イメージ</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="finance-grid">
+    <div>
+      <div class="rev-chart-wrap fade-in">
+        <div class="rev-chart-title">売上予測（億円）</div>
+        <div class="rev-bars">
+          <div class="rev-col">
+            <div class="rev-bar" style="height:10%"><div class="rev-val">1</div></div>
+            <div class="rev-label">2028年</div>
+          </div>
+          <div class="rev-col">
+            <div class="rev-bar" style="height:40%"><div class="rev-val">4</div></div>
+            <div class="rev-label">2029年</div>
+          </div>
+          <div class="rev-col">
+            <div class="rev-bar" style="height:100%"><div class="rev-val">10</div></div>
+            <div class="rev-label">2030年</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 24px;">
+        <div class="alloc-strip">
+          <div class="alloc-item" style="background:var(--orange);">
+            <div class="alloc-pct" style="color:white;">40%</div>
+            <div class="alloc-label" style="color:rgba(255,255,255,0.8);">認定取得</div>
+          </div>
+          <div class="alloc-item" style="background:var(--orange-light);">
+            <div class="alloc-pct" style="color:white;">30%</div>
+            <div class="alloc-label" style="color:rgba(255,255,255,0.8);">量産設備</div>
+          </div>
+          <div class="alloc-item" style="background:var(--navy-light);">
+            <div class="alloc-pct" style="color:white;">20%</div>
+            <div class="alloc-label" style="color:rgba(255,255,255,0.5);">販売体制</div>
+          </div>
+          <div class="alloc-item" style="background:var(--dark-gray);">
+            <div class="alloc-pct" style="color:white;">10%</div>
+            <div class="alloc-label" style="color:rgba(255,255,255,0.5);">運転資金</div>
+          </div>
+        </div>
+        <div style="font-size:11px; color:var(--gray); margin-top:8px; text-align:center;">投資資金の使途</div>
+      </div>
+    </div>
+    <div class="kpi-list fade-in">
+      <div class="kpi-item">
+        <div class="kpi-icon">📊</div>
+        <div>
+          <div class="kpi-label">粗利率</div>
+          <div class="kpi-val">60%以上</div>
+        </div>
+      </div>
+      <div class="kpi-item" style="border-left-color:var(--navy);">
+        <div class="kpi-icon">🔄</div>
+        <div>
+          <div class="kpi-label">ビジネスモデル</div>
+          <div class="kpi-val" style="font-size:15px;">製品販売 + 施工ライセンス + 改修サービス</div>
+        </div>
+      </div>
+      <div class="kpi-item" style="border-left-color:var(--green);">
+        <div class="kpi-icon">🎯</div>
+        <div>
+          <div class="kpi-label">目標売上（2030）</div>
+          <div class="kpi-val">10億円超</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTMENT -->
+<section id="investment" class="fade-in">
+  <div class="section-header">
+    <div class="section-num">07 — INVESTMENT PROPOSAL</div>
+    <h2 class="section-title">投資提案 ＆ <span>リスク対策</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="inv-grid">
+    <div class="inv-panel fade-in">
+      <div class="inv-panel-header" style="color:var(--orange-light);">💼 &nbsp;投資提案</div>
+      <div class="inv-row">
+        <div class="inv-key">投資形態</div>
+        <div class="inv-val">第三者割当増資 / 優先株式（柔軟対応）</div>
+      </div>
+      <div class="inv-row">
+        <div class="inv-key">投資家特典</div>
+        <div class="inv-val">優先的情報開示・取締役就任権</div>
+      </div>
+      <div class="inv-row">
+        <div class="inv-key">段階的実行</div>
+        <div class="inv-val">マイルストーン達成ごとの分割投入でリスク低減</div>
+      </div>
+      <div class="inv-row">
+        <div class="inv-key">リターン期待</div>
+        <div class="inv-val">高成長市場での早期黒字化 ＋ ExitによるIRR最大化</div>
+      </div>
+      <div class="inv-row">
+        <div class="inv-key">パートナー</div>
+        <div class="inv-val">大手塗料メーカーとのライセンス交渉も並行検討</div>
+      </div>
+    </div>
+    <div class="inv-panel fade-in">
+      <div class="inv-panel-header" style="color:var(--white); border-bottom-color:var(--navy-light);">⚠ &nbsp;リスクと対策</div>
+      <div class="risk-item">
+        <div class="risk-title"><div class="risk-dot"></div>認定取得の遅延</div>
+        <div class="risk-solution">→ 並行試験・専門機関連携で期間短縮</div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-title"><div class="risk-dot"></div>競合参入</div>
+        <div class="risk-solution">→ 特許出願・独自技術保護で参入障壁構築</div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-title"><div class="risk-dot"></div>木材との適合性</div>
+        <div class="risk-solution">→ 木材研究所との共同開発・早期検証</div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-title"><div class="risk-dot"></div>市場変動</div>
+        <div class="risk-solution">→ 建築以外（船舶・インフラ）への多用途展開</div>
+      </div>
+    </div>
+  </div>
+  <div class="cta-bar fade-in">
+    <div class="cta-text">ご面談・ご質問のお問い合わせをお待ちしております</div>
+    <div class="cta-contact">[貴社名・担当者名・連絡先]</div>
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+<section id="conclusion">
+  <div class="conclusion-bg">2H+</div>
+  <div class="conclusion-content">
+    <div class="conclusion-title">日本の木造建築の防火安全性を<br>飛躍的に向上させる</div>
+    <div class="conclusion-sub">次世代インフラへの投資</div>
+    <div class="steps-grid">
+      <div class="step-card fade-in">
+        <div class="step-header"><div class="step-num">STEP 01</div></div>
+        <div class="step-title">資料の共有</div>
+        <div class="step-body">製品スペック・開発進捗・財務データをご提供ください</div>
+      </div>
+      <div class="step-card fade-in">
+        <div class="step-header"><div class="step-num">STEP 02</div></div>
+        <div class="step-title">面談の設定</div>
+        <div class="step-body">チームメンバーとのキックオフミーティングを実施</div>
+      </div>
+      <div class="step-card fade-in">
+        <div class="step-header"><div class="step-num">STEP 03</div></div>
+        <div class="step-title">投資検討</div>
+        <div class="step-body">詳細事業計画書・デューデリジェンス資料をご提示</div>
+      </div>
+    </div>
+    <a href="#investment" class="btn-primary" style="font-size:15px; padding:18px 48px;">投資家の方はこちら</a>
+  </div>
+</section>
+
+<div class="footer-strip">
+  <span>NeoFireGuard Wood 2H+　／　日本初・木造対応 2時間以上耐火塗料開発プロジェクト</span>
+  <span>2026年4月　｜　CONFIDENTIAL</span>
+</div>
+
+<script>
+  // Intersection Observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Stagger children inside grids
+  document.querySelectorAll('.summary-grid, .roadmap-grid, .steps-grid').forEach(grid => {
+    grid.querySelectorAll('.fade-in').forEach((card, i) => {
+      card.style.transitionDelay = `${i * 0.1}s`;
+    });
+  });
+</script>
+</body>
+</html>
